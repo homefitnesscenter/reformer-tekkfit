@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tekkfit Pilates · Reformer</title>
+<meta name="description" content="La collezione di reformer Tekkfit Pilates progettati in Italia: cinque progetti da scoprire in 3D. Prototipi in sviluppo.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F4F2EE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+
+<!-- Caricamento -->
+<div class="loader" id="loader" aria-live="polite">
+  <img src="img/logo-tekkfit-rosa.png" alt="Tekkfit" class="loader-logo">
+  <div class="loader-bar"><span id="loader-fill"></span></div>
+  <p class="loader-txt"><span id="loader-pct">0</span>% // preparo il reformer</p>
+</div>
+
+<!-- Scena 3D fissa dietro i contenuti -->
+<canvas id="scena" aria-hidden="true"></canvas>
+<div class="vignetta" aria-hidden="true"></div>
+
+<!-- Etichette della vista esplosa -->
+<div class="etichette" id="etichette" aria-hidden="true"></div>
+
+<header class="testata">
+  <a href="#top" class="marchio" aria-label="Tekkfit Pilates, torna su">
+    <img src="img/logo-tekkfit-rosa.png" alt="Tekkfit" height="28">
+    <span>Pilates</span>
+  </a>
+  <nav class="menu" aria-label="Sezioni">
+    <a href="#collezione">Collezione</a>
+    <a href="#design">Design</a>
+    <a href="#carrello">Carrello</a>
+    <a href="#molle">Molle</a>
+    <a href="#footbar">Footbar</a>
+    <a href="#finiture">Finiture</a>
+    <a href="#specifiche">Specifiche</a>
+  </nav>
+  <a href="#contatti" class="btn btn-pilates btn-sm">Prenota<span class="solo-desktop">&nbsp;una prova</span></a>
+</header>
+
+<!-- Scelta del modello, sempre a portata di mano -->
+<div class="scelta">
+  <label for="scelta-modello">Modello</label>
+  <select id="scelta-modello" aria-label="Scegli il modello di reformer"></select>
+  <span class="scelta-stato" id="scelta-stato" aria-live="polite"></span>
+</div>
+
+<!-- Indicatore capitoli -->
+<aside class="capitoli" aria-hidden="true">
+  <span class="cap-num" id="cap-num">00</span>
+  <span class="cap-linea"><span id="cap-fill"></span></span>
+  <span class="cap-nome" id="cap-nome">Intro</span>
+</aside>
+
+<main id="top">
+
+  <!-- HERO: il titolo enorme sta DIETRO al reformer -->
+  <section class="hero" data-cap="Intro" data-k="hero">
+    <h1 class="hero-titolo" aria-label="Reformer">
+      <span class="riga r1">REFOR</span><span class="riga r2">MER</span>
+    </h1>
+    <div class="hero-testi">
+      <p class="kicker">Tekkfit Pilates <i>//</i> <span id="hero-nome">R3-Evo</span></p>
+      <p class="hero-sotto">Il reformer progettato in Italia.<br>Tecnico. Elegante. Pensato per lo studio.</p>
+    </div>
+    <div class="scorri" aria-hidden="true"><span></span>Scorri</div>
+  </section>
+
+  <section class="collezione" id="collezione" data-cap="Collezione" data-k="collezione">
+    <div class="coll-testa">
+      <p class="kicker">La collezione <i>//</i> 5 progetti</p>
+      <h2 class="titolo"><span><em>Cinque reformer.</em></span> <span><em>Scegli il tuo.</em></span></h2>
+      <p class="corpo">Cinque progetti nati in casa, dallo studio essenziale alla versione di lusso. Scegline uno: il 3D e tutti i testi della pagina si aggiornano.</p>
+    </div>
+    <div class="carte" id="carte" role="radiogroup" aria-label="Modelli"></div>
+  </section>
+
+  <section class="ch" id="design" data-cap="Design" data-k="design" data-lato="sx">
+    <div class="ch-sticky"><div class="ch-testo" data-sezione="design"></div></div>
+  </section>
+
+  <div class="nastro" aria-hidden="true"><div class="nastro-in">Designed in Italy <i>//</i> Studio Reformer <i>//</i> Designed in Italy <i>//</i> Studio Reformer <i>//</i></div></div>
+
+  <section class="ch lungo" id="carrello" data-cap="Carrello" data-k="carrello" data-lato="dx">
+    <div class="ch-sticky"><div class="ch-testo" data-sezione="carrello"></div></div>
+  </section>
+
+  <section class="ch lungo" id="molle" data-cap="Molle" data-k="molle" data-lato="sx">
+    <div class="ch-sticky"><div class="ch-testo" data-sezione="molle"></div></div>
+  </section>
+
+  <section class="ch lungo" id="footbar" data-cap="Footbar" data-k="footbar" data-lato="dx">
+    <div class="ch-sticky"><div class="ch-testo" data-sezione="footbar"></div></div>
+  </section>
+
+  <section class="ch lungo" id="montanti" data-cap="Montanti" data-k="montanti" data-lato="sx">
+    <div class="ch-sticky"><div class="ch-testo" data-sezione="montanti"></div></div>
+  </section>
+
+  <section class="ch lungo" id="esploso" data-cap="Componenti" data-k="esploso" data-lato="sx">
+    <div class="ch-sticky"><div class="ch-testo" data-sezione="esploso"></div></div>
+  </section>
+
+  <div class="nastro nastro-inverso" aria-hidden="true"><div class="nastro-in">Tecnico <i>//</i> Elegante <i>//</i> Accessibile <i>//</i> Tecnico <i>//</i> Elegante <i>//</i> Accessibile <i>//</i></div></div>
+
+  <section class="ch lungo" id="finiture" data-cap="Finiture" data-k="finiture" data-lato="sx">
+    <div class="ch-sticky"><div class="ch-testo" data-sezione="finiture"></div></div>
+  </section>
+
+  <section class="specifiche" id="specifiche" data-cap="Specifiche" data-k="specifiche">
+    <div class="spec-in" data-sezione="specifiche"></div>
+  </section>
+
+  <section class="contatti" id="contatti" data-cap="Contatti" data-k="contatti">
+    <p class="kicker">Tekkfit Pilates <i>//</i> Showroom di Sona (VR)</p>
+    <h2 class="titolo grande"><span><em>Provalo</em></span> <span><em>tra i primi.</em></span></h2>
+    <p class="corpo">Stiamo costruendo i prototipi. Lasciaci un contatto e ti invitiamo in showroom appena sono pronti.</p>
+    <div class="azioni">
+      <a class="btn btn-pilates" href="https://www.homefitnesscenter.it/" target="_blank" rel="noopener">Scrivici</a>
+      <a class="btn btn-linea" href="#collezione">Confronta i modelli</a>
+    </div>
+    <footer class="piede">
+      <span>© 2026 Home Fitness Center · Tekkfit è un marchio di Home Fitness Center</span>
+      <span>Immagini: render 3D dei progetti, non fotografie di prodotti finiti.</span>
+    </footer>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/modelli.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
